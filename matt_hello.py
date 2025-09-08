@@ -1,4 +1,5 @@
 # %%
+# raccourci (ctrl + Entréé)
 print("hello")
 
 # %%
