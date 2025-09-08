@@ -53,13 +53,23 @@ else:
   print(nb_horaire + ": pas un entier !!!")
 # %%
 
-if nb_horaire.isnumeric() and 0 <= nb_horaire < 86400:
+if nb_horaire.isnumeric() and 0 <= int(nb_horaire) < 86400:
   nb_horaire = int(nb_horaire)
   nb_heure = nb_horaire // 3600
   nb_minute = (nb_horaire % 3600) // 60
   nb_seconds =nb_horaire % 60
-  print(str(nb_heure) + "h " + str(nb_minute) + "m " + str(nb_seconds) + "s")
+  # print(str(nb_heure) + "h " + str(nb_minute) + "m " + str(nb_seconds) + "s")
+  ## TECHNIQUES DE FORMATAGE EN PYTHON
+  # 1. print: conversion implicite et concaténation
+  # print(nb_heure, "h", nb_minute, "m", nb_seconds, "s")
+  # 2. templating à la sauce python2
+  # print( "%dh %dm %ds" % (nb_heure, nb_minute, nb_seconds) )
+  # 3. templating à la sauce python3
+  # print( "{}h {}m {}s".format(nb_heure, nb_minute, nb_seconds) )
+  # 4. f-string: injecter directement des expression dans les str
+  print( f"{nb_heure}h {nb_minute + 1}m {nb_seconds:02d}s" )
 elif not nb_horaire.isnumeric():
   print(nb_horaire + ": pas un entier !!!")
 else:
   print( str(nb_horaire) + ": mauvaise valeur !")
+# %%
