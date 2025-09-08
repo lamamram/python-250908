@@ -16,3 +16,11 @@ nb_seconds =nb_horaire % 60
 
 print(str(nb_heure) + "h " + str(nb_minute) + "m " + str(nb_seconds) + "s")
 # %%
+# expression logique
+nb_horaire >= 0 and nb_horaire < 86400
+# sucre syntaxique
+0 <= nb_horaire < 86400
+# A and B <=> not (not A OR not B) 
+not (nb_horaire < 0 or nb_horaire >= 86400)
+
+# %%
