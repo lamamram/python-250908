@@ -21,7 +21,8 @@ print(x + 1)
 
 # INSTRUCTION: ligne de code
 # ex: l'affectation n'est pas une expression
-print(y = 2)
+# TypeError
+# print(y = 2)
 # %%
 # mécanismes d'affectation communs
 x = 1
@@ -55,3 +56,39 @@ bilan = [1.76, 64, "A+", tensions]
 point = (-2.40032, 43.45453, "PARIS")
 # 
 user = {"firstname": firstname, "age": entier, "bilan": bilan}
+
+# %%
+# manipulations usuelles avec les variables
+print(tensions)
+print(point)
+print(user)
+
+# paramètres sep & end de print
+# types de saut de lignes (linux, windows, Mac OS)
+# CR : Carriage Retrurn => \r
+# LF: Line Feed => \n
+# en Linux => saut de ligne => LF \n
+# en windows => // > CRLF => \r\n compatible LF
+# en MAcos => // CR > \r
+# %%
+# saisie au clavier
+saisie = input("nombre: ")
+# afficher le type d'une variable
+# ATTENTION !! input retourne une str
+print(saisie, type(saisie))
+# %%
+# introspection
+# help: documentation gérée par VSCODE via l'extension python
+# help(print)
+# dir => affiche les variables et/ou fonctions INTERNES aux variables
+print(dir(saisie))
+# ex.
+print(saisie.upper())
+
+# alléger variable sans supprimer
+# None => réprésentation de rien
+saisie = None
+# libérer == supprimer les variable
+del saisie
+# print(saisie)
+# %%
