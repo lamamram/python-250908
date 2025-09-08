@@ -7,6 +7,8 @@
 # %%
 # nom de variable composé => snake_case != camelCase != PascalCase != kebab-case
 nb_horaire = input("saisir un entier au clavier => compris entre 0 et 86400")
+
+# %%
 # REM: python est un langage avec typage dynamique
 # => le type d'une variable peut changer 
 nb_horaire = int(nb_horaire)
@@ -36,13 +38,28 @@ not (nb_horaire < 0 or nb_horaire >= 86400)
 
 # %%
 
-nb_horaire = input("saisir un entier au clavier => compris entre 0 et 86400")
-nb_horaire = int(nb_horaire)
+## contrôle de type : vérifier si la str est numérique => convertible en entier
+if nb_horaire.isnumeric():
+  nb_horaire = int(nb_horaire)
 
-if 0 <= nb_horaire < 86400:
+  if 0 <= nb_horaire < 86400:
+    nb_heure = nb_horaire // 3600
+    nb_minute = (nb_horaire % 3600) // 60
+    nb_seconds =nb_horaire % 60
+    print(str(nb_heure) + "h " + str(nb_minute) + "m " + str(nb_seconds) + "s")
+  else:
+    print( str(nb_horaire) + ": mauvaise valeur !")
+else:
+  print(nb_horaire + ": pas un entier !!!")
+# %%
+
+if nb_horaire.isnumeric() and 0 <= nb_horaire < 86400:
+  nb_horaire = int(nb_horaire)
   nb_heure = nb_horaire // 3600
   nb_minute = (nb_horaire % 3600) // 60
   nb_seconds =nb_horaire % 60
   print(str(nb_heure) + "h " + str(nb_minute) + "m " + str(nb_seconds) + "s")
+elif not nb_horaire.isnumeric():
+  print(nb_horaire + ": pas un entier !!!")
 else:
   print( str(nb_horaire) + ": mauvaise valeur !")
