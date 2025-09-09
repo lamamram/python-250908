@@ -26,7 +26,8 @@ for valeur in valeurs:
 # vérifier que la liste est non vide
 # if len(numbers) != 0:
 if numbers:
-  print(f"moyenne de {numbers}: {sum(numbers) / len(numbers)}")
+#   print(f"moyenne de {numbers}: {sum(numbers) / len(numbers):.2f}")
+  print(f"moyenne de {numbers}: {round(sum(numbers) / len(numbers), 2)}")
 else:
   print("pas de nombre à calculer")
 # %%
