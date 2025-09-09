@@ -65,7 +65,7 @@ if nb_horaire.isnumeric() and 0 <= int(nb_horaire) < 86400:
   # 2. templating à la sauce python2
   # print( "%dh %dm %ds" % (nb_heure, nb_minute, nb_seconds) )
   # 3. templating à la sauce python3
-  # print( "{}h {}m {}s".format(nb_heure, nb_minute, nb_seconds) )
+  print( "{}h {}m {}s".format(nb_heure, nb_minute, nb_seconds) )
   # 4. f-string: injecter directement des expression dans les str
   print( f"{nb_heure}h {nb_minute + 1}m {nb_seconds:02d}s" )
 elif not nb_horaire.isnumeric():

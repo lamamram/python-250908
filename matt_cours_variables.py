@@ -54,7 +54,7 @@ tensions = [117, 78]
 bilan = [1.76, 64, "A+", tensions]
 # tuple: collection // MAIS NON MODIFIABLE => t-uplet (x, y, z, t) => quadr-uplet 
 point = (-2.40032, 43.45453, "PARIS")
-# 
+# dict
 user = {"firstname": firstname, "age": entier, "bilan": bilan}
 
 # %%
