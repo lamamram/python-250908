@@ -45,6 +45,7 @@ for key in user:
 for val in user.values():
   print(val)
 
+# sur les paires clé / valeur
 for key, val in user.items():
   print(key, val)
 # %%
