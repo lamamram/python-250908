@@ -68,10 +68,54 @@ mots[::-1]
 # %%
 ## boucle for: itérer sur les éléments d'une séquence
 
+mots = ["appeler", "un", "chat", "un", "chat"]
+
 # je veux mettre chaque mot de la liste en majuscule
 # POUR chaque élément DANS la liste je transforme l'élément en majuscule
 for mot in mots:
   print(mot.upper())
 
+print(mots)
+
 # un type de données qui peut être mis dans une boucle est dit ITERABLE
+# %%
+# ajouter des éléments dans une liste
+# liste vide, str vide => "", tuple vide ()
+mots = []
+# IndexError: on ne peut pas créer les indice
+# mots[0] = "appeler"
+# ajouter à la fin: 
+# action mutable: action en interne mais ne retourne rien
+print(mots.append("un"))
+# ajouter à gauche
+mots.insert(0,"appeler")
+# concaténer les listes
+# mots = mots + ["chat", "un", "chat"]
+# mots += ["chat", "un", "chat"]
+mots.extend(["chat", "un", "chat"])
+mots
+# %%
+# ajouter des éléments dans une liste
+# enlever à la fin ET retourne
+print(mots.pop())
+# à gauche
+mots.pop(0)
+mots
+# %%
+# transformation de str en liste et réciproquement
+
+dicton = "appeler un chat un chat"
+mots = dicton.split()
+
+# pour chaque mot je veux ajouter les mot de longueur >= 3 dans une liste finale
+results = []
+for mot in mots:
+  if len(mot) >= 3:
+    results.append(mot)
+
+print(results)
+
+# remettre la liste de mot en tant que str
+# results.join(" "): contre intuitif
+" ".join(results)
 # %%
