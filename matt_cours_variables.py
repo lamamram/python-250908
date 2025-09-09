@@ -92,3 +92,7 @@ saisie = None
 del saisie
 # print(saisie)
 # %%
+# WARNING: ne pas redéfinir les types de données et/ou fonciton globales
+print = 3.14
+print("ok")
+# %%
