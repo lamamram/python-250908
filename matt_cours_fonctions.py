@@ -30,7 +30,12 @@ maj = ma_fonction("bonjour")
 # ajouter des annotations aux fonctions
 # pure information (pas un check)
 # permet l'autocomplétion de VsCode
+
+# docstring: """ """
 def ma_fonction(param: str) -> str:
+  """
+  incroyable fonction qui transforme en majuscule
+  """
   return param.upper()
 
 maj = ma_fonction("bonjour")
@@ -73,4 +78,27 @@ person = "matt"
 
 print(ma_fonction("bonjour"), person, id(person))
 # %%
+# paramètres positionnels / obligatoire et optionnels / nommés
+def ma_fonction(pos, opt="default"):
+  return pos, opt
 
+print(ma_fonction("pos", "opt"))
+# TypeError: pos n'a pas de valeur initialisée
+# ma_fonction()
+ma_fonction("pos")
+# %%
+# ordre des paramètres positionnels à gauche et nommé après
+
+# SyntaxError
+# def ma_fonction(opt="default", pos):
+#   return opt, pos
+
+# %%
+# on peut également nommés les paramètres à l'appel
+def ma_fonction(pos, pos2):
+  return pos, pos2
+
+# flécher les valeurs aux paramètres 
+# indépendemment de l'ordre des paramètres de la définition
+ma_fonction(pos2="pos2", pos="pos")
+# %%
