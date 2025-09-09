@@ -29,5 +29,5 @@ if numbers:
 #   print(f"moyenne de {numbers}: {sum(numbers) / len(numbers):.2f}")
   print(f"moyenne de {numbers}: {round(sum(numbers) / len(numbers), 2)}")
 else:
-  print("pas de nombre à calculer")
+  print("pas de nombres à calculer")
 # %%

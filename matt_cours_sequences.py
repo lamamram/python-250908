@@ -101,6 +101,12 @@ print(mots.pop())
 # à gauche
 mots.pop(0)
 mots
+
+# %%
+
+mots.remove("un")
+mots
+
 # %%
 # transformation de str en liste et réciproquement
 
