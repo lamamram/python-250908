@@ -62,3 +62,17 @@ fruits = ["pomme", "Papaye", "cerise"]
 fruits = [ fruit.upper() for fruit in fruits if fruit.lower().startswith("p") ]
 fruits
 # %%
+
+# BOUCLE WHILE
+# boucler un bloc d'instructions tant qu'une condition reste VRAIE
+# le bloc du while doit modifier la condition SINON on a une boucle INFINIE
+temp = int(input("temp °C"))
+
+while temp < 100:
+  print(f"{temp}: çà fonctionne")
+  temp = int(input("temp °C"))
+
+print("BOOM")
+
+
+# %%
