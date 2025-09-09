@@ -125,3 +125,17 @@ print(results)
 # results.join(" "): contre intuitif
 " ".join(results)
 # %%
+## UNPACKING d'un tuple
+
+tup = ("joe", "SMITH", 33)
+firstname, lastname, age = tup
+firstname, lastname, age
+
+# %%
+# firstname = "joe"
+# lastname = "SMITH"
+# age = 33
+firstname, lastname, age = "joe", "SMITH", 33
+firstname, lastname, age
+
+# %%
