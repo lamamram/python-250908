@@ -25,3 +25,15 @@ injections = {
 }
 
 # %%
+
+# 3/ faire boucler ce bout de code tant qu'on ait au - une paire de motifs '(('
+while _template.find("((") != -1:
+  # 1/ trouver les premières occurence des motifs '((' et '))' dans _template
+  start_index = _template.index("((") + len("((")
+  end_index = _template.index("))")
+  key = _template[start_index:end_index]
+  # 2/ remplacer ((pression)) par 500 dans _template
+  _template = _template.replace("((" + key + "))", injections.get(key, "N/A"))
+
+print(_template)
+# %%
