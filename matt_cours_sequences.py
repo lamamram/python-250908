@@ -12,6 +12,7 @@ print(dicton, mots, tups)
 ## REM: cette expression est un tuple implicite
 dicton[0], mots[0], tups[0]
 
+# un type de données utilsant [] avec des entiers est dit INDEXABLE
 # %%
 # dernier élément: nb d'éléments - 1
 len(dicton), len(mots)
@@ -51,4 +52,26 @@ start_index = dicton.index("un")
 end_index = dicton.find("chat") + len("chat")
 dicton[start_index:end_index]
 
+# %%
+# slicing remarquables
+# à partir du début jusqu'à chat
+mots[:mots.index("chat")]
+# à partir de chat jusqu'à la fin
+mots[mots.index("chat"):]
+# slicing tous les 2 éléments
+mots[::2]
+# inverser la séquence
+mots[::-1]
+# %%
+# savoir si un élément existe dans une séquence: opérateur in
+"chat" in dicton, "chien" not in mots
+# %%
+## boucle for: itérer sur les éléments d'une séquence
+
+# je veux mettre chaque mot de la liste en majuscule
+# POUR chaque élément DANS la liste je transforme l'élément en majuscule
+for mot in mots:
+  print(mot.upper())
+
+# un type de données qui peut être mis dans une boucle est dit ITERABLE
 # %%
