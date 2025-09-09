@@ -38,3 +38,39 @@ maj
 # les annotations n'empêchent pas l'erreur
 # ma_fonction(3.14)
 # %%
+# portée d'une variable globale à une fonction
+def ma_fonction(param: str) -> str:
+  return f"{param.upper()}  {person}"
+
+# variable globale à la fonction
+person = "matt"
+
+# la variable person a été créée 
+# avant d'être utilsée dans le bloc de la fonction
+ma_fonction("bonjour")
+
+# %%
+# portée d'une variable locale à une fonction
+def ma_fonction(param: str) -> str:
+  # CE person est local dans la fonction
+  person = "joe"
+  print(id(person))
+  return f"{param.upper()}  {person}"
+
+# CE person est global
+person = "matt"
+
+print(ma_fonction("bonjour"), person, id(person))
+# %%
+# forcer la maj d'une variable globale dans une fonction
+def ma_fonction(param: str) -> str:
+  global person
+  person = "joe"
+  print(id(person))
+  return f"{param.upper()}  {person}"
+
+person = "matt"
+
+print(ma_fonction("bonjour"), person, id(person))
+# %%
+
