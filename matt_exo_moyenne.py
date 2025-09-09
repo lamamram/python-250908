@@ -31,3 +31,26 @@ if numbers:
 else:
   print("pas de nombres à calculer")
 # %%
+
+valeurs = input("n valeurs entiers relatifs séparés par ','")
+valeurs = valeurs.split(",")
+
+
+numbers = []
+for valeur in valeurs:
+  valeur = valeur.strip()
+  if valeur.isnumeric() or ( valeur.startswith("-") and valeur[1:].isnumeric()):
+    numbers.append(int(valeur))
+  else:
+    print(f"{valeur}: pas un entier !!")
+    break
+# si l'iterable "valeurs" a été complètement consommé
+# autrement dit pas de break rencontré
+else:
+  if numbers:
+    print(f"moyenne de {numbers}: {round(sum(numbers) / len(numbers), 2)}")
+  else:
+    print("pas de nombres à calculer")
+
+
+# %%
