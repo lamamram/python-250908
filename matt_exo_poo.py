@@ -18,6 +18,7 @@
 """
 # %%
 from matt_text_analyzer.text_cleaner import Cleaner
+from matt_text_analyzer.word_counter import Counter
 
 if __name__ == "__main__":
   text = """
@@ -40,6 +41,8 @@ une syntaxe simple à utiliser.
 """
   
   cleaner = Cleaner(text)
-  print(cleaner.clean())
+  counter = Counter(cleaner=cleaner)
+  print(counter.count())
+
 
 # %%
