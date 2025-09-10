@@ -27,4 +27,4 @@ class Cleaner:
     self.__clean_breaks()
     self.__clean_spaces()
     self.__remove_little_words()
-    return self.__text
+    return self.__text.lower()
