@@ -32,6 +32,7 @@ parse_tpl("animal: {{pet}}", {"pet": "lapin"})
 # %%
 ###### import à partir d'un package
 # matt_project.matt_utils: chemin python
+# il faut créer un fichier __init__.py à la racine du package
 import matt_project.matt_utils
 
 matt_project.matt_utils.parse_template("animal: {{pet}}", {"pet": "lapin"})
@@ -43,11 +44,14 @@ from matt_project.matt_utils import parse_template
 parse_template("animal: {{pet}}", {"pet": "lapin"}, debug=True)
 
 # %%
+##### imports planqués dans le __init__.py
 # s'il on a un import dans __init__.py
 from matt_project import parse_template
 
 parse_template("animal: {{pet}}", {"pet": "lapin"}, debug=True)
+
 # %%
+###### BLOC MAIN
 import matt_project.matt_utils
 
 # si un module est importé => __name__ contient le nom du module
