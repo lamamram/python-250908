@@ -37,3 +37,10 @@ while _template.find("((") != -1:
 
 print(_template)
 # %%
+##### encapsuler le code ci-dessus pour en faire une fonction réutilisable
+
+# 1/ donner un nom signifiant
+# 2/ choisir les paramètres centraux/essentiels et les paramètres qui peuvent avoir une valeur par défaut
+# 3/ effectuer le refactoring (chercher + remplacer les variables ou valeurs en dur du code en paramètres)
+# 4/ gérer la sortie de la fonction
+# 5/ utiliser le ** pour mettre un mode "debug"
