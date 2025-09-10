@@ -9,6 +9,7 @@ def parse_template(
   ) -> str:
   """
   interprète un template avec des données
+  
   options **:
   debug=True
   ...
@@ -21,3 +22,6 @@ def parse_template(
       print(f"DEBUG: key: {key}")
     tpl = tpl.replace(delims[0] + key + delims[1], data.get(key, default))
   return tpl
+
+# import et from ... import exécutent tout le code
+# print("coucou")
