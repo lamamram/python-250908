@@ -1,5 +1,5 @@
 # %%
-# définition d'une fonction
+######## définition d'une fonction
 def ma_fonction():
   print("coucou")
 
@@ -9,8 +9,9 @@ def ma_fonction():
 # les fonctions sont des objets callables
 print(ma_fonction())
 # la valeur de l'appel est None car le bloc ne retourne rien
+
 # %%
-# valeur de retour d'une fonction
+######## valeur de retour d'une fonction
 def ma_fonction():
   return "coucou"
   # jamais exécuté car return arrête le bloc
@@ -19,15 +20,16 @@ def ma_fonction():
 print(ma_fonction())
 
 # %%
-# param: paramètre à initialiser au moment de l'appel
+######## param: paramètre à initialiser au moment de l'appel
 def ma_fonction(param):
   return param.upper()
 
 maj = ma_fonction("bonjour")
 # AttributeError
 # ma_fonction(3.14)
+
 # %%
-# ajouter des annotations aux fonctions
+######## ajouter des annotations aux fonctions
 # pure information (pas un check)
 # permet l'autocomplétion de VsCode
 
@@ -42,8 +44,9 @@ maj = ma_fonction("bonjour")
 maj
 # les annotations n'empêchent pas l'erreur
 # ma_fonction(3.14)
+
 # %%
-# portée d'une variable globale à une fonction
+######## portée d'une variable globale à une fonction
 def ma_fonction(param: str) -> str:
   return f"{param.upper()}  {person}"
 
@@ -55,7 +58,7 @@ person = "matt"
 ma_fonction("bonjour")
 
 # %%
-# portée d'une variable locale à une fonction
+######## portée d'une variable locale à une fonction
 def ma_fonction(param: str) -> str:
   # CE person est local dans la fonction
   person = "joe"
@@ -66,8 +69,9 @@ def ma_fonction(param: str) -> str:
 person = "matt"
 
 print(ma_fonction("bonjour"), person, id(person))
+
 # %%
-# forcer la maj d'une variable globale dans une fonction
+######## forcer la maj d'une variable globale dans une fonction
 def ma_fonction(param: str) -> str:
   global person
   person = "joe"
@@ -77,8 +81,9 @@ def ma_fonction(param: str) -> str:
 person = "matt"
 
 print(ma_fonction("bonjour"), person, id(person))
+
 # %%
-# paramètres positionnels / obligatoire et optionnels / nommés
+######## paramètres positionnels / obligatoire et optionnels / nommés
 def ma_fonction(pos, opt="default"):
   return pos, opt
 
@@ -86,15 +91,16 @@ print(ma_fonction("pos", "opt"))
 # TypeError: pos n'a pas de valeur initialisée
 # ma_fonction()
 ma_fonction("pos")
+
 # %%
-# ordre des paramètres positionnels à gauche et nommé après
+######## ordre des paramètres positionnels à gauche et nommés après
 
 # SyntaxError
 # def ma_fonction(opt="default", pos):
 #   return opt, pos
 
 # %%
-# on peut également nommés les paramètres à l'appel
+######## on peut également nommer les paramètres à l'appel
 def ma_fonction(pos, pos2):
   return pos, pos2
 

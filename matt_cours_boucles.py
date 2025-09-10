@@ -1,4 +1,5 @@
 # %%
+######## BOUCLE CLASSIQUE
 fruits = ["pomme", "Papaye", "cerise"]
 
 fruits_p = []

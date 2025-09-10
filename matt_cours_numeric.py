@@ -1,10 +1,12 @@
 # %%
-# la seule conversion implicite entre types de données !=
+######## la seule conversion implicite entre types de données !=
 entier = 33
 PI = 3.14
 # "+" travaille avec int et float
 print(entier + PI)
+
 # %%
+######## CONVERSIONS EXPLICITES
 age = input("saisir un âge")
 # besoin de conversion EXPLICITE en int
 age = int(age) + 1

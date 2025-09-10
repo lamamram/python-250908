@@ -1,14 +1,19 @@
 # %%
+######## AFFECTATION
 # affectation de la valeur 1 entier dans la variable x
 # on met 1 dans x
 # x <= 1
 # "=" : opérateur d'affectation
 x = 1
+
 # %%
+######## PAS DE DECLARATION
 # on ne peut pas déclarer les variables en python
 # NameError
 # y
+
 # %%
+######## EXPRESSION et INSTRUCTION
 # distinction entre instruction et expression
 # EXPRESSION : n'importe quelle écriture en python EVALUABLE
 # truc qu'on peut mettre dans un print sans planter
@@ -24,7 +29,7 @@ print(x + 1)
 # TypeError
 # print(y = 2)
 # %%
-# mécanismes d'affectation communs
+######## mécanismes d'affectation communs
 x = 1
 y = 1
 # OU
@@ -39,8 +44,9 @@ y = y + 1
 y += 1
 # maintenant x et y ne ciblent plus la même case mémoire
 print(id(x), id(y), x is y)
+
 # %%
-# types principaux
+######## BUILTINS: types principaux
 # int
 entier = 33
 # float: nombre réel
@@ -58,7 +64,8 @@ point = (-2.40032, 43.45453, "PARIS")
 user = {"firstname": firstname, "age": entier, "bilan": bilan}
 
 # %%
-# manipulations usuelles avec les variables
+######## manipulations usuelles avec les variables
+# print : afficher en sortie standard (console)
 print(tensions)
 print(point)
 print(user)
@@ -68,16 +75,18 @@ print(user)
 # CR : Carriage Retrurn => \r
 # LF: Line Feed => \n
 # en Linux => saut de ligne => LF \n
-# en windows => // > CRLF => \r\n compatible LF
-# en MAcos => // CR > \r
+# en Windows => // > CRLF => \r\n compatible LF
+# en MacOS => // CR > \r
+
 # %%
-# saisie au clavier
+######## saisie au clavier
 saisie = input("nombre: ")
 # afficher le type d'une variable
 # ATTENTION !! input retourne une str
 print(saisie, type(saisie))
+
 # %%
-# introspection
+######## introspection
 # help: documentation gérée par VSCODE via l'extension python
 # help(print)
 # dir => affiche les variables et/ou fonctions INTERNES aux variables
@@ -92,7 +101,7 @@ saisie = None
 del saisie
 # print(saisie)
 # %%
-# WARNING: ne pas redéfinir les types de données et/ou fonciton globales
+######## WARNING: ne pas redéfinir les types de données et/ou fonciton globales
 print = 3.14
 print("ok")
 # %%
