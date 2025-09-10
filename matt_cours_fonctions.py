@@ -19,6 +19,7 @@ def ma_fonction():
 
 print(ma_fonction())
 
+
 # %%
 ######## param: paramètre à initialiser au moment de l'appel
 def ma_fonction(param):
@@ -83,6 +84,23 @@ person = "matt"
 print(ma_fonction("bonjour"), person, id(person))
 
 # %%
+######## fonction vs procédure
+# fonction: injecter les params en entée + transformation + retourner la sortie
+def ma_fonction(param):
+  return param.upper()
+
+# procédure: bloc qui met à jour des variables globales et ne retourne RIEN
+def ma_proc():
+  global person
+  person = person.upper()
+
+person = "matt"
+
+print(ma_fonction(person))
+ma_proc()
+print(person)
+
+# %%
 ######## paramètres positionnels / obligatoire et optionnels / nommés
 def ma_fonction(pos, opt="default"):
   return pos, opt
@@ -107,4 +125,30 @@ def ma_fonction(pos, pos2):
 # flécher les valeurs aux paramètres 
 # indépendemment de l'ordre des paramètres de la définition
 ma_fonction(pos2="pos2", pos="pos")
+
 # %%
+####### VARIADICS positionnels: nombre indeterminé de paramètres positionnels mais non obligatoires
+
+def ma_fonction(*opts):
+  return opts
+
+ma_fonction()
+ma_fonction(1)
+ma_fonction(1, "ok", 3.14)
+print()
+
+# %%
+####### VARIADICS nommé: nombre indeterminé de paramètres nommés et non obligatoires
+def ma_fonction(**keywords):
+  """
+  les fonctions utilisant le ** devraient 
+  expliquer les clés intéressantes à appeler
+  """
+  return keywords
+
+print(ma_fonction())
+print(ma_fonction(key=1))
+print(ma_fonction(key=1, key2="ok", key3=3.14))
+
+# %%
+
