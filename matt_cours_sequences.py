@@ -58,6 +58,12 @@ end_index = dicton.find("chat") + len("chat")
 dicton[start_index:end_index]
 
 # %%
+######## index autres occurrences
+
+index1 = dicton.index("chat")
+index2 = dicton.index("chat", index1 + 1)
+index2
+# %%
 ######## slicing remarquables
 # à partir du début jusqu'à chat
 mots[:mots.index("chat")]
@@ -151,4 +157,16 @@ firstname, lastname, age
 firstname, lastname, age = "joe", "SMITH", 33
 firstname, lastname, age
 
+# %%
+###### piège
+a, b = 0, 1
+## le a de droite reste à 0
+a, b = b, a + b
+a, b
+
+##
+a, b = 0, 1
+a = b
+b = a + b
+a, b
 # %%

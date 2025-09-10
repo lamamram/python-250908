@@ -1,4 +1,16 @@
 # %%
+######## operateur ternaire
+condition = True
+
+if condition:
+  valeur = "valide"
+else:
+  valeur = "default"
+
+# idem en une ligne
+valeur = "valide" if condition else "default"
+
+# %%
 ######## BOUCLE CLASSIQUE
 fruits = ["pomme", "Papaye", "cerise"]
 
@@ -10,6 +22,7 @@ for fruit in fruits:
 print(fruits_p)
 del fruits
 # %%
+######## GENERER DES ENTIERS
 # boucle normale en C
 # for ( condition initiale; condition d'arrêt; ce qui change )
 # for(int i=0;i<100;i++){
@@ -23,7 +36,7 @@ for i in range(100):
 
 print(list(range(10)))
 # %%
-# types de ranges
+######### types de ranges
 for i in range(1, 11):
   print(i)
 
@@ -33,7 +46,7 @@ for i in range(1, 11, 2):
 for i in range(10, -1, -1):
   print(i)
 # %%
-# transformer une liste en place (inline)
+######### transformer une liste en place (inline)
 fruits = ["pomme", "Papaye", "cerise"]
 
 for i in range(len(fruits)):
@@ -42,7 +55,7 @@ for i in range(len(fruits)):
 print(fruits)
 
 # %%
-#idem avec la fonction enumerate()
+######## #idem avec la fonction enumerate()
 fruits = ["pomme", "Papaye", "cerise"]
 # objet enumerate: proche à une liste de tuple à 2 éléments
 print(list(enumerate(fruits)))
@@ -52,7 +65,7 @@ for i, fruit in enumerate(fruits):
 print(fruits)
 
 # %%
-# liste en intension: une liste décrite par un plan de construction 
+######### liste en intension: une liste décrite par un plan de construction 
 # ==  liste en compréhension
 # NON par des valeurs litérales
 fruits = ["pomme", "Papaye", "cerise"]
@@ -62,9 +75,9 @@ fruits = ["pomme", "Papaye", "cerise"]
 # SI fruit commence en p ou P
 fruits = [ fruit.upper() for fruit in fruits if fruit.lower().startswith("p") ]
 fruits
-# %%
 
-# BOUCLE WHILE
+# %%
+######### BOUCLE WHILE
 # boucler un bloc d'instructions tant qu'une condition reste VRAIE
 # le bloc du while doit modifier la condition SINON on a une boucle INFINIE
 temp = int(input("temp °C"))
@@ -77,7 +90,7 @@ print("BOOM")
 
 
 # %%
-# les mots continue, break, else et pass pour while et for
+######### les mots continue, break, else et pass pour while et for
 # break sort directement de la boucle 
 # pass : instruction qui ne fait rien (bouche trou / factotum)
 
