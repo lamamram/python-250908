@@ -79,6 +79,7 @@ acc = Account()
 acc.__id = 13453
 print(acc.get_id())
 # le véritable attribut privé est accessible en public avec _Account__id
+# == mauvaise POO
 print(acc._Account__id)
 
 # %%
