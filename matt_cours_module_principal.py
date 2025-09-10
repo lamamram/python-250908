@@ -48,3 +48,15 @@ from matt_project import parse_template
 
 parse_template("animal: {{pet}}", {"pet": "lapin"}, debug=True)
 # %%
+import matt_project.matt_utils
+
+# si un module est importé => __name__ contient le nom du module
+print(matt_project.matt_utils.__name__)
+# si un module est exécuté directement par python => programme principal => __name__ vaut __main__
+print(__name__)
+
+# BLOC MAIN: entrée du programme principal
+# Ce code ne sera exécuté qui si le module courant est le programme principal
+if __name__ == "__main__":
+  print(matt_project.matt_utils.parse_template("animal: {{pet}}", {"pet": "lapin"}))
+# %%
