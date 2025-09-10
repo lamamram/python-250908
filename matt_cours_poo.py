@@ -36,6 +36,7 @@ class Account:
 
 if __name__ == "__main__":
   # instanciation: création d'un objet de la classe Account
+  # acc <=> self
   acc = Account()
   acc._id = 14343
   acc.balance = 100.
