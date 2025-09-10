@@ -30,3 +30,21 @@ parse_template = True
 parse_tpl("animal: {{pet}}", {"pet": "lapin"})
 
 # %%
+###### import à partir d'un package
+# matt_project.matt_utils: chemin python
+import matt_project.matt_utils
+
+matt_project.matt_utils.parse_template("animal: {{pet}}", {"pet": "lapin"})
+
+# %%
+###### import sans espace d'un package
+from matt_project.matt_utils import parse_template
+
+parse_template("animal: {{pet}}", {"pet": "lapin"}, debug=True)
+
+# %%
+# s'il on a un import dans __init__.py
+from matt_project import parse_template
+
+parse_template("animal: {{pet}}", {"pet": "lapin"}, debug=True)
+# %%
