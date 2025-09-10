@@ -57,3 +57,15 @@ data = {
   "key3": "val3",
 }
 
+
+def parse_template(tpl: str, data: dict, delims: tuple=("{{", "}}"), default: str="N/A"):
+  while tpl.find(delims[0]) != -1:
+    start_index = tpl.index(delims[0]) + len(delims[0])
+    end_index = tpl.index(delims[1])
+    key = tpl[start_index:end_index]
+    tpl = tpl.replace(delims[0] + key + delims[1], data.get(key, default))
+  return tpl
+
+parse_template(_tpl, data)
+parse_template(_template, injections, delims=("((", "))"))
+# %%
