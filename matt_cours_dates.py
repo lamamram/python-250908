@@ -35,5 +35,4 @@ now = datetime.now()
 cuisson_oeuf_coque = timedelta(minutes=3)
 now + cuisson_oeuf_coque
 
-
 # %%
