@@ -42,6 +42,72 @@ if __name__ == "__main__":
   acc.overdraft = 100.
 
   acc.withdrawal(50)
-  acc.balance
+  print(acc.balance)
 
+  ## attribut d'objet vs attribut de classe
+  print(Account.balance)
+  acc2 = Account()
+  acc2.balance = 200.
+  print(acc2.balance)
+
+# %%
+######## notion hasardeuse d'attributs / méthodes publics et privés
+class Account:
+  # attributs privés (inaccessible en lecture et écriture depuis l'extéreur de la classe)
+  # privé => préfixé par "__"
+  __id = 0
+  __balance = 0.
+  __overdraft = 0.
+
+  # méthode publique
+  def withdrawal(self, amount: float) -> dict:
+    if amount > 0:
+      self.balance -= amount
+    else:
+      print(f"montant invalide: {amount}")
+  
+  # getter et setter
+  def get_id(self):
+    return self.__id
+
+
+acc = Account()
+# inaccessible en lecture depuis l'extérieur de la classe
+# AttributeError
+# print(acc.__id)
+acc.__id = 13453
+print(acc.get_id())
+# le véritable attribut privé est accessible en public avec _Account__id
+print(acc._Account__id)
+
+# %%
+####### class Account "acceptable"
+
+class Account:
+
+  ## initalise les attributs d'objet au moment de l'instanciation
+  def __init__(self, _id: int, balance: float=100, overdraft: float=100):
+    self.__id = _id
+    self.__balance = balance
+    self.__overdraft = overdraft
+
+  # pour le print et la conversion en str
+  def __str__(self):
+    return f"{self.__id}: balance: {self.__balance}"
+
+  # méthode publique: interface entre l'extérieur et les méthodes privées
+  def withdrawal(self, amount: float) -> dict:
+    if amount > 0:
+      self.__set_balance(-amount)
+    else:
+      print(f"montant invalide: {amount}")
+
+  def __set_balance(self, amount: float):
+    self.__balance += amount
+
+
+if __name__ == "__main__":
+  acc = Account(_id=1433, balance=200.)
+  acc.withdrawal(50)
+  print(acc)
 # %%
