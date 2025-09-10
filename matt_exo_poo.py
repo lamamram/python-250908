@@ -39,7 +39,7 @@ Il est conçu pour optimiser la productivité des programmeurs en offrant des ou
 une syntaxe simple à utiliser. 
 """
   
-  cleaner = Cleaner()
-  
+  cleaner = Cleaner(text)
+  print(cleaner.clean())
 
 # %%
