@@ -102,6 +102,7 @@ class Account:
     else:
       print(f"montant invalide: {amount}")
 
+  # méthode privée: mettent à jour les attributs privés
   def __set_balance(self, amount: float):
     self.__balance += amount
 
@@ -109,5 +110,6 @@ class Account:
 if __name__ == "__main__":
   acc = Account(_id=1433, balance=200.)
   acc.withdrawal(50)
+  # effet du __str__
   print(acc)
 # %%
