@@ -110,6 +110,7 @@ class Account:
 
 
 if __name__ == "__main__":
+  # effet du __init__
   acc = Account(_id=1433, balance=200.)
   acc.withdrawal(50)
   # effet du __str__
