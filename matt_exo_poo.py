@@ -17,10 +17,10 @@
 5. écrire le programme principal pour utiliser le package
 """
 # %%
-
+from matt_text_analyzer.text_cleaner import Cleaner
 
 if __name__ == "__main__":
-   text = """
+  text = """
 Python est un langage de programmation interprété, 
 multiparadigme et multiplateformes. 
 Il favorise la programmation impérative structurée, 
@@ -38,6 +38,8 @@ par macOS, ou encore Android, iOS, et peut aussi être traduit en Java ou .NET.
 Il est conçu pour optimiser la productivité des programmeurs en offrant des outils de haut niveau et 
 une syntaxe simple à utiliser. 
 """
+  
+  cleaner = Cleaner()
   
 
 # %%
