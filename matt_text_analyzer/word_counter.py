@@ -3,7 +3,7 @@ from .text_cleaner import Cleaner
 class Counter:
   def __init__(self, cleaner: Cleaner):
     # Injection de dependance => la classe counter ne connait que l'interface publique du cleaner
-    # association faible entre les 2 classes
+    # couplage faible entre les 2 classes
     self.__text = cleaner.clean()
   
   def count(self):
