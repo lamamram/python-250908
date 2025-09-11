@@ -135,18 +135,29 @@ if __name__ == "__main__":
 # %%
 ############ HERITAGE de classe (relation être)
 from datetime import datetime
-class Client:
-  def __init__(self, f_name: str, l_name: str, date_joint: datetime):
+
+class Person:
+  def __init__(self, f_name: str, l_name: str):
     self.f_name = f_name
     self.l_name = l_name
-    self.date_joint = date_joint
-
+  
   def get_full_name(self):
     return f"{self.f_name.capitalize()} {self.l_name.upper()}"
+
+# héritage 
+class Client(Person):
+  def __init__(self, f_name: str, l_name: str, date_joint: datetime):
+    # super: exécute une méthode de la classe parente
+    # MAIS sur l'objet de classe courante
+    super().__init__(f_name, l_name)
+    self.date_joint = date_joint
   
+  # méthoe particulière à Client
   def format_date_joint(self, format):
     return self.date_joint.strftime(format)
 
 cl = Client("joe", "smith", datetime.now())
-print(cl.get_full_name(), cl.format_date_joint("%Y"))
+# méthode héritée de Person
+print(cl.get_full_name())
+print(cl.format_date_joint("%Y"))
 # %%
