@@ -44,19 +44,55 @@ current_dir
 from pathlib import Path
 import os
 from zipfile import ZipFile
+import csv
 
 parent_dir = Path("..")
 big_zip = parent_dir / "202503_OPENDATA_A-NomsDeDomaineEnPointFr.zip"
 data_dir = parent_dir / "data"
+new_name = "dns.csv"
+nb_lines = 100000
+nb_slices = 2
+
+def write_csv(path):
+  with open(
+  path, 
+  mode="w", 
+  encoding="utf-8",
+  newline=""
+) as f:
+    writer = csv.writer(f, delimiter=";", quotechar='"')
+    writer.writerow(header)
+    writer.writerows(rows)
+    # ne fonctionne pas car rows devient locale
+    # rows = []
+    # fonctionne car mutable
+    rows.clear()
 
 # mkdir -p en python
 os.makedirs(data_dir, exist_ok=True)
 
 # if not os.path.exists(data_dir / "dns.csv"):
-if not (data_dir / "dns.csv").exists():
+if not (data_dir / new_name).exists():
   with ZipFile(big_zip, mode="r") as zf:
     items = zf.namelist()
     zf.extract(items[0], path=data_dir)
-    os.rename(data_dir / items[0], data_dir / "dns.csv")
+    os.rename(data_dir / items[0], data_dir / new_name)
+
+with open(
+  data_dir / new_name, 
+  mode="r", 
+  encoding="utf-8",
+) as f:
+  reader = csv.reader(f, delimiter=";")
+  header = next(reader)
+  rows = []
+  # itérer également sur les n° de lignes qui commencent à 1
+  for i, row in enumerate(reader, start=1):
+    if i > nb_lines * nb_slices: break
+    rows.append(row)
+    # tant qu'on ait pas à 100000 , 200000, (un mutltiple de 100000)
+    if i % nb_lines: continue
+    write_csv(data_dir / f"dns_{i}.csv")
+    # rows = []
 
 # %%
