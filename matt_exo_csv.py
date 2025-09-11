@@ -41,3 +41,22 @@ parent_dir = current.absolute().parent
 current_dir = parent_dir / "formation_python"
 current_dir
 # %%
+from pathlib import Path
+import os
+from zipfile import ZipFile
+
+parent_dir = Path("..")
+big_zip = parent_dir / "202503_OPENDATA_A-NomsDeDomaineEnPointFr.zip"
+data_dir = parent_dir / "data"
+
+# mkdir -p en python
+os.makedirs(data_dir, exist_ok=True)
+
+# if not os.path.exists(data_dir / "dns.csv"):
+if not (data_dir / "dns.csv").exists():
+  with ZipFile(big_zip, mode="r") as zf:
+    items = zf.namelist()
+    zf.extract(items[0], path=data_dir)
+    os.rename(data_dir / items[0], data_dir / "dns.csv")
+
+# %%
