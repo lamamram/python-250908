@@ -70,6 +70,9 @@ class Account:
   # getter et setter
   def get_id(self):
     return self.__id
+  
+  def set_id(self, _id):
+    self.__id = _id
 
 
 acc = Account()
@@ -86,6 +89,9 @@ print(acc._Account__id)
 ####### class Account "acceptable"
 
 class Account:
+  """
+  documentation de la classe
+  """
 
   ## initalise les attributs d'objet au moment de l'instanciation
   def __init__(self, _id: int, balance: float=100, overdraft: float=100):
@@ -96,6 +102,13 @@ class Account:
   # pour le print et la conversion en str
   def __str__(self):
     return f"{self.__id}: balance: {self.__balance}"
+
+  # addition de comptes
+  def __add__(self, account: Account):
+    return self.__balance + account.get_balance()
+
+  def get_balance(self):
+    return self.__balance
 
   # méthode publique: interface entre l'extérieur et les méthodes privées
   def withdrawal(self, amount: float) -> dict:
@@ -115,4 +128,7 @@ if __name__ == "__main__":
   acc.withdrawal(50)
   # effet du __str__
   print(acc)
+  print(acc.__doc__)
+  acc2 = Account(_id=34534, balance=300.)
+  print(acc + acc2)
 # %%
