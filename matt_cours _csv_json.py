@@ -25,10 +25,37 @@ with open(
 ) as f:
   reader = csv.reader(f, delimiter=";")
   # reader est un itérable
+  # itération pas à pas
+  header = next(reader)
+  print(header)
+  # reste des itérations
   for line in reader:
     print(line)
 
+# %%
+# classe itérateur
 
+class MyIterator:
+  ## initialiser la condition d'arrêt
+  def __init__(self, limit=10):
+    self.limit = limit
+  
+  # au début du for (ou next) créer le compteur
+  def __iter__(self, counter=0):
+    self.counter = counter
+    # retourner l'objet
+    return self
+  
+  def __next__(self):
+    if self.counter >= self.limit:
+      # lever une exception
+      raise StopIteration
+    ret = self.counter
+    # condition de changement entre itération
+    self.counter += 1
+    return ret
 
-
+it = MyIterator()
+for i in it:
+  print(i)
 # %%
