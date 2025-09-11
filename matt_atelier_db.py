@@ -41,11 +41,15 @@ def execute_script(script_path, conn: sqlite3.Connection):
       cur.executescript(script)
       return True, "OK"
     except sqlite3.OperationalError as oe:
+      # on pourrait faire une propagation d'erreur pour un except à l'extérieur de la fonction 
+      # raise sqlite3.OperationalError(str(oe))
       return False, oe
 
 if __name__ == "__main__":
-
-  with sqlite3.connect("../dns.db") as conn:
-    ret = execute_script("./domain_names_sqlite3.sql", conn)
-    print(ret)
+  try:
+    with sqlite3.connect("../dns.db") as conn:
+      ret = execute_script("./domain_names_sqlite3.sql", conn)
+      print(ret)
+  except FileNotFoundError as fe:
+    print(fe)
 # %%
