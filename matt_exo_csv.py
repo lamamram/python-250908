@@ -7,8 +7,6 @@ BONUS
 1bis.téléchargement en GET et en binaire
 outils: pip install requests
 
-
-
 2. extraire le fichier .csv contenu dans le zip à télécharger
 hint: zipfile.Zipfile (doc ou google/stackoverflow)
 hint: les zip s'ouvrent et se ferment
@@ -27,3 +25,19 @@ hint: les zip s'ouvrent et se ferment
 
 modus operandi: faire ceci en n'ouvrant le csv en lecture qu'une seule fois
 """
+
+# %%
+from pathlib import Path
+
+# gestion auto de l'os
+current = Path(".")
+## diférentes propriétés intéressante
+# relatif <=> absolu
+# aller vers la gauche
+# sortir les chemins en str
+str(current.absolute().parent)
+parent_dir = current.absolute().parent
+# opérateur / permet de créer des chemins dynamiques
+current_dir = parent_dir / "formation_python"
+current_dir
+# %%
