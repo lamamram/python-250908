@@ -25,9 +25,5 @@ with sqlite3.connect("../dns.db") as conn:
   print(dict(row))
 
 # close
-
-
-
-
-
 # %%
+######## insertion des tables à partir d'un script
