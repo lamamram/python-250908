@@ -96,3 +96,42 @@ with open(
     # rows = []
 
 # %%
+############## idem avec PANDAS
+import pandas as pd
+URL = "https://www.afnic.fr/wp-media/ftp/documentsOpenData/202503_OPENDATA_A-NomsDeDomaineEnPointFr.zip"
+# la classe principale pandas est le DataFrame
+
+dns_df = pd.read_csv(
+  URL,
+  sep=";",
+  encoding="utf-8",
+  nrows=1000000
+)
+# en RAM
+dns_df
+# %%
+###### pandas en écriture
+from pathlib import Path
+parent_dir = Path("..")
+data_dir = parent_dir / "data"
+
+dns_df.to_csv(
+  data_dir / "dns_million.zip",
+  sep=";",
+  encoding="utf-8",
+  index=False,
+  compression={
+    "method": "zip",
+    "archive_name": "dns_million.csv"
+  }
+)
+# %%
+####### slices en lignes
+dns_df.loc[0: 100000]
+
+# %%
+########
+gb = dns_df.groupby("Pays BE")
+count_df = gb["Nom de domaine"].count().sort_values(ascending=False)
+count_df
+# %%
