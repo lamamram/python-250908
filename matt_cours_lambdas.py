@@ -29,6 +29,7 @@ list(map(lambda x: x**2, numbers))
 # %%
 ######## filter(): filtrer un itérable selon la valeur de retour VRAIE d'une fonction
 numbers = list(range(1, 11))
+# ici je veux les nombres impaires en sortie
 list(filter(lambda x: x % 2, numbers))
 
 # %%
