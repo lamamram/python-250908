@@ -41,6 +41,7 @@ une syntaxe simple à utiliser.
 """
   
   cleaner = Cleaner(text)
+  # association de classe: relation AVOIR
   counter = Counter(cleaner=cleaner)
   print(counter.count())
 
