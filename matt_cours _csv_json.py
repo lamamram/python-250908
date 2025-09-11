@@ -5,7 +5,7 @@ import csv
 header = ["name", "age", "sex", "role"]
 users = [["bob", 32, "M;F", "dev"], ["jane", 28, "F", "admin"]]
 
-# désactiver le saut de ligne en fin de ligne avec le writer csv sur WINDOWS
+# newline = "": désactiver le saut de ligne en fin de ligne avec le writer csv sur WINDOWS
 with open(
   "./matt_users.csv", 
   mode="w", 
@@ -33,7 +33,7 @@ with open(
     print(line)
 
 # %%
-# classe itérateur
+######### classe itérateur
 
 class MyIterator:
   ## initialiser la condition d'arrêt
