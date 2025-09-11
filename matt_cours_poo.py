@@ -161,3 +161,24 @@ cl = Client("joe", "smith", datetime.now())
 print(cl.get_full_name())
 print(cl.format_date_joint("%Y"))
 # %%
+
+### sythèse de la poo en python
+
+# 1/ tout est objet !
+# 2/ tous les types de base (builtins) sont des classes
+# 3/ type == classe
+# 4/ fonction "interne" == méthode
+# 5/ fonction de conversion  == classe
+
+class Truc:
+  def __init__(self, t):
+    self.t = t
+
+x = int("1")
+tr = Truc("t")
+
+print(type(tr), isinstance(tr, Truc))
+print(type(x), isinstance(x, int))
+
+
+# %%
