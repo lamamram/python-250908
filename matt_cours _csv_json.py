@@ -68,15 +68,19 @@ users = [["bob", 32, "M;F", "dev"], ["jane", 28, "F", "admin"]]
 
 ## vers une liste de dictionnaires
 users = list(map(lambda user: dict(zip(header, user)), users))
-print(users)
+# print(users)
 
 # écriture
 with open("./matt_users.json", mode="w", encoding="utf-8") as f:
   json.dump(users, f)
+  # serialisation dict => str json
+  print(json.dumps(users))
 
 # lecture
 with open("./matt_users.json", mode="r", encoding="utf-8") as f:
   users = json.load(f)
+  # déserialisation str json => dict  
+  # json.loads()
 
 header = list(users[0].keys())
 header
