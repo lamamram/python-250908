@@ -53,3 +53,10 @@ if __name__ == "__main__":
   except FileNotFoundError as fe:
     print(fe)
 # %%
+######## insertion de données en table 
+"""
+1. créer une liste de 100000 listes [nom de domaine, iso2] depuis le fichier dns_100000.csv
+2. insérer en base avec la construction de la requête suivante:
+   INSERT INTO (name, iso2) VALUES ('aaaaa.fr', 'FR'), (...), ... * 100000
+hint: la méthode "???".join(???)
+"""
