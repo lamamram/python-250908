@@ -1,37 +1,3 @@
-# %%
-############### client socket tcp
-from socket import socket, AF_INET, SOCK_STREAM, gaierror
-
-# on va demander les robots.txt
-URL = 'www.wellho.net'
-
-# socket réseau(AF_INET) & tcp (SOCK_STREAM)
-sock = socket(AF_INET, SOCK_STREAM)
-
-try:
-  # socket = combinaison url + port
-  sock.connect((URL, 80))
-# gai : getaddrinfo()
-except gaierror as e:
-  print(f"unable to connect to {URL}: {e}")
-
-req = f"GET /robots.txt HTTP/1.1\r\nHost: {URL}\r\n\r\n"
-# envoie la requête TCP sous forme d'octets
-# retourne le nb d'octets envoyés qui peut être < total
-sock.send(bytes(req, "utf-8"))
-
-## attendre la réponse
-while True:
-  # réception de la réponse par lots
-  data = sock.recv(2048)
-  if data == b'': break
-  # affichage en utf-8
-  print(data.decode("utf-8"))
-
-# fermer une socket
-sock.close()
-
-# %%
 ######## socket client et serveur tcp
 # le socket serveur tcp: la gestion des requêtes clientes va être exécuté dans un thread
 from socket import *
@@ -88,5 +54,3 @@ if __name__ == "__main__":
     print(f"client: {data.decode("utf-8")}")
     thread.join(2)
     server.close()
-
-# %%
