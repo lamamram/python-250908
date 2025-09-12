@@ -150,6 +150,8 @@ class Client(Person):
     # super: exécute une méthode de la classe parente
     # MAIS sur l'objet de classe courante
     super().__init__(f_name, l_name)
+    # en cas d'héritage mutltiple => super devient équivoque
+    # Person.__init__(self, f_name, l_name)
     self.date_joint = date_joint
   
   # méthoe particulière à Client
