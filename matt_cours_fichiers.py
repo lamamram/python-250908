@@ -23,6 +23,8 @@ with open("./matt_mon_fic.txt", mode="a", encoding="utf-8") as f:
 # ValueError
 # f.write("ko")
 
+
+
 # %%
 ##### itération sur un fichier
 with open("./matt_mon_fic.txt", mode="r", encoding="utf-8") as f:
@@ -62,5 +64,16 @@ with open("./matt_mon_bin", mode="wb") as f:
 with open("./matt_mon_bin", mode="rb") as f:
   # bytes => str
   content = f.read().decode("utf-8")
+
+# %%
+####### réouvrir une variable gérée par un gestionnaire de contexte
+with open("./matt_mon_fic.txt", mode="r", encoding="utf-8") as f:
+  print(f.read())
+
+### fermé
+# ici on ne peut pas le faire
+with f:
+  # ValueError
+  print(f.read())
 
 # %%
