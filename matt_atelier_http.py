@@ -62,15 +62,22 @@ class GoRestClient:
           if "application/json" in response.headers["content-type"]:
             data = response.json()
       else:
-        data = response.json()
+        raise ValueError(f"{response.status_code}: {response.text}")
     except (requests.ConnectionError, HTTPError, ValueError) as e:
-      data = {"message": str(e)}
+      data = {"message": f"{e} {type(e)}"}
     return data
         
 
   def get_users(self):
-    # TODO : comment faire itérer les pages ?
-    users = self.__call("GET", "users")
+    users, i = [], 1
+    while True:
+      data = self.__call("GET", f"users?page={i}&per_page=100")
+      print(f"page {i} fetched !")
+      if isinstance(data, dict): return data
+      if not data: break
+      users += data
+      i += 1
+       
     return users
 
 api = GoRestClient()
