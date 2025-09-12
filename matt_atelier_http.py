@@ -121,6 +121,7 @@ class GoRestClient:
         # la pool exécute nb_workers * self.get_page en // avec les nb_workers * page_id
         responses = pool.map(self.get_page, list(range(start_index, end_index)))
         for response in responses:
+          ## ATTENTION return et pas break car break ne casse que le for pas le while
           if not response: return data
           data += response
         i += 1
