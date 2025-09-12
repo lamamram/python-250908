@@ -41,6 +41,40 @@ Hint: utiliser la fonction getattr
    des appels à l'endpoint https://gorest.co.in/public/v2/users à pagigner
    jusqu'on ait tous les utilisateurs
 """
+
+import requests
+from urllib3.exceptions import HTTPError
+
+class GoRestClient:
+  def __init__(self, domain="gorest.co.in", version="v2"):
+    self.__domain = domain
+    self.__version = version
+  
+  def __call(self, method, endpoint):
+    try:
+      url = f"https://{self.__domain}/public/{self.__version}/{endpoint}"
+      if not method in ("GET", "POST", "PUT", "DELETE"):
+        raise ValueError(f"{method}: méthode non autorisée")
+      response = getattr(requests, method.lower())(url)
+      
+      if response.status_code in (200,):
+        if "content-type" in response.headers:
+          if "application/json" in response.headers["content-type"]:
+            data = response.json()
+      else:
+        data = response.json()
+    except (requests.ConnectionError, HTTPError, ValueError) as e:
+      data = {"message": str(e)}
+    return data
+        
+
+  def get_users(self):
+    # TODO : comment faire itérer les pages ?
+    users = self.__call("GET", "users")
+    return users
+
+api = GoRestClient()
+api.get_users()
 # %%
 ###### les fonctions getattr et setattr hasattr
 
