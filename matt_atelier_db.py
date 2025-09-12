@@ -57,6 +57,55 @@ if __name__ == "__main__":
 """
 1. créer une liste de 100000 listes [nom de domaine, iso2] depuis le fichier dns_100000.csv
 2. insérer en base avec la construction de la requête suivante:
-   INSERT INTO (name, iso2) VALUES ('aaaaa.fr', 'FR'), (...), ... * 100000
+   INSERT INTO (name, iso2) VALUES ('aaaaa.fr', 'FR'), ('bbbbb.fr', 'DE'), ... * 100000
 hint: la méthode "???".join(???)
 """
+
+from pathlib import Path
+import pandas as pd
+import csv
+import sqlite3
+ 
+csv_path = Path("..") / "data" / "dns_100000.csv"
+dns_df = pd.read_csv(
+  csv_path,
+  sep=";",
+  # simplifier le jeu d'entrée en développement
+  # nrows=10,
+  encoding="utf-8",
+  usecols=["Nom de domaine", "Pays BE"]
+)
+dns_df
+
+inserts = dns_df.values.tolist()
+inserts
+prepared = inserts.copy()
+# with open(csv_path, mode="r", encoding="utf-8") as f:
+#   rd = csv.reader(f, delimiter=";")
+#   inserts = []
+#   for line in rd:
+#     inserts.append(line[:2])
+# inserts
+
+for i in range(len(inserts)):
+  inserts[i] = "', '".join(inserts[i])
+inserts
+
+try:
+  with sqlite3.connect("../dns.db") as conn:
+    cur =  conn.cursor()
+    # métaprogrammation: écriture d'une requête d'un langage de programmation à partir d'un autre
+    # 1 requête avec 100000 lignes
+    # req = f"INSERT INTO domain_name (name, iso2) VALUES ('{"'), ('".join(inserts)}')"
+    # cur.execute(req)
+    
+    # VS requête préparée: 100000 requête avec 1 ligne par requête
+    req = "insert into domain_name (name, iso2) values (?, ?)"
+    cur.executemany(req, prepared)
+    
+    print(f"{cur.rowcount} éléments insérés")
+except sqlite3.OperationalError as oe:
+  print(oe)
+
+
+# %%
